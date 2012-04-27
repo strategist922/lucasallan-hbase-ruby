@@ -1,0 +1,2 @@
+module Hbase
+end

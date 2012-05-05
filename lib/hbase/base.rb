@@ -8,6 +8,8 @@ module Hbase
     extend ActiveModel::Naming
     extend ActiveModel::Translation
 
+    attr_accessor :id
+
 
     attribute_method_prefix 'clear_'
     attribute_method_suffix '?'
@@ -18,8 +20,7 @@ module Hbase
     end
 
     def persisted?
-      # add implementation for this method
-      true
+      self.id != nil
     end
 
     protected

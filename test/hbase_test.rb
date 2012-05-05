@@ -32,4 +32,20 @@ class HbaseTest < ActiveSupport::TestCase
     sample.email = ""
     assert !sample.email?
   end
+
+  test "should have id attribute" do
+    sample = SampleHbase.new
+    assert sample.id == nil
+  end
+
+  test "persisted should return true if id exist" do
+    sample = SampleHbase.new
+    sample.stubs(:id).returns(1232)
+    assert sample.persisted?
+  end
+
+  test "persisted should return false if id don't exist" do
+    sample = SampleHbase.new
+    assert !sample.persisted?
+  end
 end

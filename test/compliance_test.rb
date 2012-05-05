@@ -15,4 +15,9 @@ class ComplianceTest < ActiveSupport::TestCase
       I18n.reload!
     end
   end
+
+  test "model_name exposes singular and human name" do
+    assert_equal "sample_hbase", model.class.model_name.singular
+    assert_equal "Sample hbase", model.class.model_name.human
+  end
 end
